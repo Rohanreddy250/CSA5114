@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char text[100], key[100];
+    int i;
+
+    printf("Enter plaintext (uppercase): ");
+    scanf("%s", text);
+
+    printf("Enter key (uppercase): ");
+    scanf("%s", key);
+
+    int len = strlen(key);
+
+    printf("Ciphertext: ");
+
+    for(i=0;text[i]!='\0';i++)
+    {
+        char ch=((text[i]-'A')+(key[i%len]-'A'))%26+'A';
+        printf("%c",ch);
+    }
+
+    return 0;
+}
+
+
+OUTPUT:
+Enter plaintext (uppercase): WELCOME 
+Enter key (uppercase): ERTYRR
+Ciphertext: AVEAFDI
