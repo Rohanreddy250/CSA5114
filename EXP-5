@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char text[100];
+    int a,b,i;
+
+    printf("Enter plaintext (uppercase): ");
+    scanf("%s",text);
+
+    printf("Enter value of a: ");
+    scanf("%d",&a);
+
+    printf("Enter value of b: ");
+    scanf("%d",&b);
+
+    printf("Ciphertext: ");
+
+    for(i=0;text[i]!='\0';i++)
+    {
+        if(text[i]>='A' && text[i]<='Z')
+        {
+            int p=text[i]-'A';
+            int c=(a*p+b)%26;
+            printf("%c",c+'A');
+        }
+    }
+
+
+output:
+Enter plaintext (uppercase): BEAUTIFUL
+Enter value of a: 0
+Enter value of b: 1
+Ciphertext: BBBBBBBBB
+
+    return 0;
+}
